@@ -1,0 +1,16 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme='PaperMod'
+[params]
+  homeInfoPaginate = 5
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+
+[[menu.main]]
+  identifier = "archives"
+  name = "归档"
+  url = "archives/"
+  weight = 20
