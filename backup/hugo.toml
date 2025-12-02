@@ -9,6 +9,7 @@ theme='PaperMod'
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   TocOpen = true
+  katex = true
   [params.assets]
     disableAssetsBusting=true
   [params.homeInfoParams]

@@ -1,0 +1,19 @@
+<!-- katex@0.16.8 -->
+<link rel="stylesheet" href="{{ "css/katex.min.css" | absURL }}">
+<script src="{{ "js/katex.min.js" | absURL }}"></script>
+<script src="{{ "js/auto-render.min.js" | absURL }}"></script>
+<script>
+  // 页面加载后自动渲染公式
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},  // 块级公式（Display Math）
+        {left: '\\[', right: '\\]', display: true},// 块级公式（Display Math）
+        {left: '$', right: '$', display: false},   // 行内公式（Inline Math）
+        {left: '\\(', right: '\\)', display: false} // 行内公式（Inline Math）
+      ],
+      throwOnError: false,  // 公式错误时不抛出异常
+      trust: true           // 允许渲染复杂公式（如含 HTML 标签）
+    });
+  });
+</script>

@@ -110,3 +110,69 @@ cp ./themes/PaperMod/layouts/partials/head.html  ./layouts/partials/
 # 打开head.html 搜索integrity 删除所有integrity
 #重新deploy，浏览器强制刷新即可
 ```
+
+### 引入KaTex
+
+KaTeX 由可汗学院开发，以极快的渲染速度和较高的质量著称，非常适合现代静态博客。
+
+原本打算引入外部资源，找不到可靠的资源，大厂的CDN资源都关了，于是我直接把js、css下载到static文件夹.
+
+hugo主题里的html和一般的html不太一样，包括很多`{{...}}`，这是hugo的语法，hugo会根据
+
+代码中大量出现 `{{ }}` 包裹的内容，这是 Hugo 的模板语法，用于：
+
+* 条件判断（如 `{{- if ... }}`）
+* 变量引用（如 `{{ site.Title }}` 引用网站标题）
+* 函数调用（如 `{{ .Permalink }}` 获取当前页面永久链接）
+* 资源处理（如 `resources.Get` 加载静态资源）
+
+这些语法会在 Hugo 构建网站时被解析，生成最终的静态 HTML。
+
+资源下载位置：
+
+```bash
+MY-HUGO-BLOG\STATIC
+├─css
+└─js
+```
+
+引入KaTex资源直接插入就行，代码如下
+
+```html
+{{- /* 引入本地 KaTeX 资源（替代 CDN） */}}
+
+<link rel="stylesheet" href="{{ "css/katex.min.css" | absURL }}">
+<script src="{{ "js/katex.min.js" | absURL }}"></script>
+<script src="{{ "js/auto-render.min.js" | absURL }}"></script>
+<script>
+  // 页面加载后自动渲染公式
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$", right: "$", display: false }, // 行内公式
+        { left: "$$", right: "$$", display: true } // 块级公式
+      ]
+    });
+  });
+</script>
+```
+
+测试LaTex
+
+行内公式$ O = PV$
+
+KaTex 行内 \\(123\\)
+
+块级公式
+
+
+
+$$ O=PV $$
+
+KaTex格式公式
+
+这是上一段文本
+
+\\[O=PV\\]
+
+这是下一段文本
