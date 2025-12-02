@@ -1,6 +1,6 @@
 baseURL = 'https://amorfatix.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'AmorFatIX'
 theme='PaperMod'
 [params]
   homeInfoPaginate = 5
@@ -8,9 +8,17 @@ theme='PaperMod'
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-
+  TocOpen = true
+  [params.assets]
+    disableAssetsBusting=true
+  [params.homeInfoParams]
+    Title = "你好，我是AmorFatIX"
+    Content = "我告诉自己的灵魂说，别作声，耐心等待。"
+[[params.socialIcons]]
+  name = "GitHub" # 将 <platform> 替换为实际名称
+  url = "https://github.com/amorfatix" # 将 <link> 替换为实际链接
 [[menu.main]]
   identifier = "archives"
-  name = "归档"
+  name = "archives"
   url = "archives/"
   weight = 20
